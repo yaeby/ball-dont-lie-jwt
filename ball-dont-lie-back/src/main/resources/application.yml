@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: Ball don't lie
+    datasource:
+        url: jdbc:postgresql://localhost:5432/ball_dont_lie
+        username: postgres
+        password: postgres
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        hibernate:
+            ddl-auto: update
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
