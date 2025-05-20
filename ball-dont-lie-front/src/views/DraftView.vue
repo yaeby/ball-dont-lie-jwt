@@ -76,6 +76,21 @@ const filteredProspects = computed(() => {
     );
 });
 
+const currentPage = computed(() => prospectsStore.pagination.currentPage + 1);
+const totalPages = computed(() => prospectsStore.pagination.totalPages);
+
+const nextPage = async () => {
+    if (prospectsStore.hasNext) {
+        await prospectsStore.nextPage();
+    }
+};
+
+const prevPage = async () => {
+    if (prospectsStore.hasPrevious) {
+        await prospectsStore.prevPage();
+    }
+};
+
 onMounted(async () => {
     try {
         await prospectsStore.fetchProspects();
@@ -176,6 +191,31 @@ onMounted(async () => {
                         Delete
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <div v-if="filteredProspects.length > 0" class="mt-8">
+            <!-- Pagination Controls -->
+            <div class="flex justify-between items-center">
+                <button 
+                    @click="prevPage"
+                    :disabled="!prospectsStore.hasPrevious"
+                    class="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-600 disabled:opacity-50"
+                >
+                    Previous
+                </button>
+
+                <span class="text-gray-800 dark:text-white">
+                    Page {{ currentPage }} of {{ totalPages }}
+                </span>
+
+                <button 
+                    @click="nextPage"
+                    :disabled="!prospectsStore.hasNext"
+                    class="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-white rounded hover:bg-gray-400 dark:hover:bg-gray-600 disabled:opacity-50"
+                >
+                    Next
+                </button>
             </div>
         </div>
     </div>
