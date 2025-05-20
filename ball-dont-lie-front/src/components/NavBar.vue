@@ -36,6 +36,9 @@ onMounted(() => {
                 <li>
                     <router-link to="/my-team" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-700 md:hover:bg-transparent md:hover:text-gray-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">My Dream Team</router-link>
                 </li>
+                <li>
+                    <router-link to="/draft" class="block py-2 px-3 text-white rounded-sm hover:bg-gray-700 md:hover:bg-transparent md:hover:text-gray-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">NBA Draft 2025</router-link>
+                </li>
             </ul>
         </div>
         </div>

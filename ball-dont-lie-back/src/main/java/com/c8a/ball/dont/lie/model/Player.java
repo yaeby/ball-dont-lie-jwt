@@ -24,11 +24,4 @@ public class Player {
     private String jerseyNumber;
     private String college;
     private String country;
-    private int draftYear;
-    private int draftRound;
-    private int draftNumber;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "team_id")
-    private Team team;
 }

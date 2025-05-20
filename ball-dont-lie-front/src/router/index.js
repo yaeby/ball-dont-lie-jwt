@@ -5,6 +5,7 @@ import PlayersView from '../views/PlayersView.vue';
 import DreamTeamView from '../views/DreamTeamView.vue';
 import TeamDetails from '../views/TeamDetails.vue';
 import PlayerDetails from '../views/PlayerDetails.vue';
+import DraftView from '../views/DraftView.vue';
 
 const routes = [
 {
@@ -38,6 +39,11 @@ const routes = [
   path: "/my-team",
   name: "MyTeam",
   component: DreamTeamView,
+},
+{
+  path: "/draft",
+  name: "Draft",
+  component: DraftView,
 }
 ];
 
