@@ -22,9 +22,16 @@ public class TokenController {
             @RequestParam(defaultValue = "VISITOR") String role,
             @RequestParam(required = false) List<String> permissions) {
 
+        System.out.println("GET /token endpoint called with role: " + role);
+        System.out.println("Permissions requested: " + permissions);
+
         if (permissions == null || permissions.isEmpty()) {
             permissions = Arrays.asList("READ");
+            System.out.println("No permissions provided, defaulting to READ");
+
         }
+
+        System.out.println("Token generated successfully for role: " + role);
 
         String token = jwtTokenUtil.generateToken(permissions, role);
         return ResponseEntity.ok(new TokenResponse(token));
@@ -35,15 +42,20 @@ public class TokenController {
         List<String> permissions = request.getPermissions();
         String role = request.getRole();
 
+        System.out.println("Request data - Role: " + role + ", Permissions: " + permissions);
+
         if (permissions == null || permissions.isEmpty()) {
             permissions = Arrays.asList("READ");
+            System.out.println("No permissions provided, defaulting to READ");
         }
 
         if (role == null || role.isEmpty()) {
             role = "VISITOR";
+            System.out.println("No role provided, defaulting to VISITOR");
         }
 
         String token = jwtTokenUtil.generateToken(permissions, role);
+        System.out.println("Token generated successfully for role: " + role);
         return ResponseEntity.ok(new TokenResponse(token));
     }
 }
