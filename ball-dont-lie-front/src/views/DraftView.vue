@@ -169,12 +169,12 @@ onMounted(async () => {
                 </h2>
 
                 <div class="text-gray-600 dark:text-gray-300 text-center">
-                    <p class="mb-2" v-if="prospect.college">College: {{ prospect.college }}</p>
-                    <p class="mb-2" v-if="prospect.country && prospect.country !== 'USA'">Country: {{ prospect.country }}</p>
-                    <p class="mb-2">Position: {{ prospect.position }}</p>
+                    <p class="mb-2" v-if="prospect.position">Position: {{ prospect.position }}</p>
                     <p class="mb-2" v-if="prospect.height">Height: {{ prospect.height }}"</p>
                     <p class="mb-2" v-if="prospect.weight">Weight: {{ prospect.weight }} lbs</p>
-                    <p class="mb-2" v-if="prospect.jerseyNumber">Jersey: #{{ prospect.jerseyNumber }}</p>
+                    <p class="mb-2" v-if="prospect.college">College: {{ prospect.college }}</p>
+                    <p class="mb-2" v-if="prospect.country">Country: {{ prospect.country }}</p>
+                    <p class="mb-2" v-if="prospect.jerseyNumber">Jersey: {{ prospect.jerseyNumber }}</p>
                 </div>
 
                 <div class="flex justify-center gap-4 mt-6">
